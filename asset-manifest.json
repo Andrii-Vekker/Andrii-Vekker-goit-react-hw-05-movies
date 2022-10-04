@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/Andrii-Vekker-goit-react-hw-05-movies/static/css/main.7acaea2f.css",
-    "main.js": "/Andrii-Vekker-goit-react-hw-05-movies/static/js/main.07d3183d.js",
+    "main.js": "/Andrii-Vekker-goit-react-hw-05-movies/static/js/main.fc318b5e.js",
     "index.html": "/Andrii-Vekker-goit-react-hw-05-movies/index.html",
     "main.7acaea2f.css.map": "/Andrii-Vekker-goit-react-hw-05-movies/static/css/main.7acaea2f.css.map",
-    "main.07d3183d.js.map": "/Andrii-Vekker-goit-react-hw-05-movies/static/js/main.07d3183d.js.map"
+    "main.fc318b5e.js.map": "/Andrii-Vekker-goit-react-hw-05-movies/static/js/main.fc318b5e.js.map"
   },
   "entrypoints": [
     "static/css/main.7acaea2f.css",
-    "static/js/main.07d3183d.js"
+    "static/js/main.fc318b5e.js"
   ]
 }
