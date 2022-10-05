@@ -11,10 +11,10 @@ export const App = () => {
    
       <Routes>
         <Route path="/" element={<Home/>} />
-        {/* <Route path="/movies" element={<Movies/>} /> */}
-        {/* <Route path="/movies/:movieId" element={<MovieDetails/>} /> */}
-        {/* <Route path="/movies/:movieId/cast" element={<Cast/>} /> */}
-        {/* <Route path="/movies/:movieId/reviews" element={<Reviews/>} /> */}
+        <Route path="/movies" element={<Movies/>} />
+        <Route path="/movies" element={<MovieDetails/>} />
+        <Route path="/movies" element={<Cast/>} />
+        <Route path="/movies" element={<Reviews/>} />
 </Routes>
     
   );
