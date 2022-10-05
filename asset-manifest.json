@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.js": "/Andrii-Vekker-goit-react-hw-05-movies/static/js/main.923d8809.js",
-    "index.html": "/Andrii-Vekker-goit-react-hw-05-movies/index.html",
-    "main.923d8809.js.map": "/Andrii-Vekker-goit-react-hw-05-movies/static/js/main.923d8809.js.map"
+    "main.js": "/goit-react-hw-05-movies/static/js/main.923d8809.js",
+    "index.html": "/goit-react-hw-05-movies/index.html",
+    "main.923d8809.js.map": "/goit-react-hw-05-movies/static/js/main.923d8809.js.map"
   },
   "entrypoints": [
     "static/js/main.923d8809.js"
