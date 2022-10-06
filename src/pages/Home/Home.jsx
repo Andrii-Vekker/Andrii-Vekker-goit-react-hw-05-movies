@@ -1,3 +1,6 @@
+import { getTrandingFilms } from "components/Api/Api";
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { LinkStyled } from "./Home.styled";
 import { Heder } from "./Home.styled";
 
@@ -8,14 +11,20 @@ const navItems = [
 
 
 export default function Home() {
+  const [trandingFilms, setTrandingFilms] = useState([]);
+  
+
+  useEffect(() => {
+getTrandingFilms().then(data => setTrandingFilms(data.results))
+}, [])
 
 
   return (
-    <Heder>
-      <nav>
-        {navItems.map(({ href, text }) => <LinkStyled to={href} key={href} end>{text}</LinkStyled>)}
-      </nav>
-    </Heder>
+  
+       <ul>
+        {trandingFilms.map(({ title, id }) => <li key={id}><Link >{title}</Link></li>)}
+      </ul>
+  
   )
 }
 
