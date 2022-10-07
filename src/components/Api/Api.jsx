@@ -8,8 +8,10 @@ export const getTrandingFilms = async () => {
 return response.data
 };
 
-export const getSearchFilms = async () => {
 
+export const getSearchFilms = async (value) => {
+     const response = await axios.get(`${URl}/search/movie?${Key}&query=${value}&page=1`);
+return response.data.results
 };
 
 export const getFilmById = async (id) => {

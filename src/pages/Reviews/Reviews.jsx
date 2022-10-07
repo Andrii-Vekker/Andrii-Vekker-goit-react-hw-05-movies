@@ -7,7 +7,7 @@ import { getRewievFilm } from "components/Api/Api";
 export default function Reviews() {
 
   const { movieId } = useParams();
-  const [reviews, setReviews] = useState(null);
+  const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
   getRewievFilm(movieId).then(data => setReviews(data))

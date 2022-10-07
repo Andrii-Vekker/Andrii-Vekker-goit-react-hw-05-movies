@@ -5,7 +5,7 @@ import { getActorDetailsFilm } from "components/Api/Api";
 
 export default function Cast() {
   const { movieId } = useParams();
-  const [actorsInfo, setActorsInfo] = useState(null);
+  const [actorsInfo, setActorsInfo] = useState([]);
 
   useEffect(() => {
     getActorDetailsFilm(movieId).then(data => setActorsInfo(data))
