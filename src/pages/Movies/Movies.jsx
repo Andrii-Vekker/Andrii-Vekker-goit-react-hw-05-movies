@@ -31,7 +31,7 @@ setSearchParams(value !== "" ? {filter: value} : {})
     <>
       <SearchBox onChange={changeFilter} />
       <ul>
-        {searchFilms.map(({ title, id }) => <li key={id}><Link to={`movies/${id}`}>{title}</Link></li>)}
+        {searchFilms.map(({ title, id }) => <li key={id}><Link to={`/movies/${id}`}>{title}</Link></li>)}
       </ul>
     </>
   );

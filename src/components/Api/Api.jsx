@@ -4,8 +4,14 @@ const Key = "api_key=8d439eb5ac7a153643a933bcb130103b";
 const URl = "https://api.themoviedb.org/3"
 
 export const getTrandingFilms = async () => {
-    const response = await axios.get(`${URl}/trending/movie/week?${Key}`);
+   try {
+     const response = await axios.get(`${URl}/trending/movie/week?${Key}`);
 return response.data
+   } catch (error) {
+    return error
+   } finally {
+       
+   }
 };
 
 

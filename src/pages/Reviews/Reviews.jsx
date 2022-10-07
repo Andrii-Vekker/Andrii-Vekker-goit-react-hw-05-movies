@@ -27,7 +27,7 @@ export default function Reviews() {
               <article>{content}</article>
             </li>
           );
-     })};
+     })}
       </ul>
       </>
   );

@@ -44,5 +44,5 @@ export default function MovieDetails() {
       </main>
       <Outlet/>
       </>
-  );
+  )
 };

@@ -1,6 +1,6 @@
 import { getTrandingFilms } from "components/Api/Api";
 import { useState, useEffect } from "react";
-import { Link, Outlet } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 
 
@@ -18,7 +18,7 @@ getTrandingFilms().then(data => setTrandingFilms(data.results))
   return (
            
        <ul>
-      {trandingFilms.map(({ title, id }) => <li key={id}><Link to={`movies/${id}`}>{title}</Link></li>)}
+      {trandingFilms.map(({ title, id }) => <li key={id}><Link to={`/movies/${id}`}>{title}</Link></li>)}
       </ul>
 
   )
