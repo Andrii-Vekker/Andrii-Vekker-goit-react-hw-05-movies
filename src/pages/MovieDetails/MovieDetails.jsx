@@ -7,7 +7,6 @@ export default function MovieDetails() {
 
   const { movieId } = useParams();
   const [movieInfo, setMovieInfo] = useState(null);
-  
   useEffect(() => {
  getFilmById(movieId).then(data => setMovieInfo(data))
   }, [movieId])

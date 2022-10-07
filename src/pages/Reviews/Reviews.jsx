@@ -1,15 +1,33 @@
+import { useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { getRewievFilm } from "components/Api/Api";
 
 
 
 export default function Reviews() {
+
+  const { movieId } = useParams();
+  const [reviews, setReviews] = useState(null);
+
+  useEffect(() => {
+  getRewievFilm(movieId).then(data => setReviews(data))
+  }, [movieId])
+  
+  if (!reviews) {
+    return
+  };
+
   return (
     <>
     <ul>
-      <li>
-        <h2>
-        </h2>
-        <p></p>
-      </li>
+        {reviews.map(({ content, author, id }) => {
+          return (
+            <li key={id}>
+              <h2>{`Author: ${author}`}</h2>
+              <article>{content}</article>
+            </li>
+          );
+     })};
       </ul>
       </>
   );

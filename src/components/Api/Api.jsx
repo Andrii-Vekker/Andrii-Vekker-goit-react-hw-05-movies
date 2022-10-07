@@ -18,12 +18,15 @@ export const getFilmById = async (id) => {
     return response.data
 };
 
-export const getActorDetailsFilms = async () => {
-
+export const getActorDetailsFilm = async (id) => {
+    const response = await axios.get(`${URl}/movie/${id}/credits?${Key}`);
+    return response.data.cast
+    
 };
 
-export const getRewievFilms = async () => {
-
+export const getRewievFilm = async (id) => {
+    const response = await axios.get(`${URl}/movie/${id}/reviews?${Key}&page=1`);
+    return response.data.results
 };
 
 
