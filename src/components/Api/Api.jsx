@@ -12,8 +12,10 @@ export const getSearchFilms = async () => {
 
 };
 
-export const getDetailsFilms = async () => {
+export const getFilmById = async (id) => {
 
+    const response = await axios.get(`${URl}/movie/${id}?${Key}`);
+    return response.data
 };
 
 export const getActorDetailsFilms = async () => {

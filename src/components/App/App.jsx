@@ -13,8 +13,13 @@ export const App = () => {
    <div  style={{padding:"16px"}}>
       <Routes>
         <Route path="/" element={<Layout/>}>
-            <Route index element={<Home/>} />
-            <Route path="/movies" element={<Movies/>} />
+          <Route index element={<Home/>} />
+          <Route path="movies" element={<Movies />} />
+          <Route path="movies/:movieId" element={<MovieDetails />} >
+            <Route path="/movies/:movieId/cast" element={<Cast/>} />
+            <Route path="/movies/:movieId/review" element={<Reviews/>} />
+          </Route>
+          
         {/* <Route path="/movies" element={<MovieDetails/>} />
         <Route path="/movies" element={<Cast/>} />
         <Route path="/movies" element={<Reviews/>} /> */}

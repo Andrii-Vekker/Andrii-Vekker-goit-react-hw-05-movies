@@ -1,24 +1,26 @@
 import { HederMain } from "./Layout.styled";
-import Home from "pages/Home/Home";
-import Movies from "pages/Movies/Movies";
 import { Outlet } from "react-router-dom";
-import { Heder } from "pages/Home/Home.styled";
-import { LinkStyled } from "pages/Home/Home.styled";
+import AppBar from "components/AppBar/AppBar";
 
-const navItems = [
-  { href: "/", text: "Home" },
-  { href: "/movies", text: "Movies" }
-];
+
 
 export default function Layout() {
     return (
+      <HederMain>
+        <AppBar />
+        <Outlet/>
+      </HederMain>
       
-        <>
-            <Heder>
-                  <nav>
-        {navItems.map(({ href, text }) => <LinkStyled to={href} key={href} end>{text}</LinkStyled>)}
-      </nav>
-            </Heder>
-        </>
     );
 };
+
+
+  // <div>
+  //       <Heder>
+  //               <nav>
+  //       {navItems.map(({ href, text }) => <LinkStyled to={href} key={href} end>{text}</LinkStyled>)}
+  //     </nav>
+  //         </Heder>
+  //       <Home />
+  //       <Outlet/>
+  //       </div>

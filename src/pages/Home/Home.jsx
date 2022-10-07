@@ -1,13 +1,9 @@
 import { getTrandingFilms } from "components/Api/Api";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { LinkStyled } from "./Home.styled";
-import { Heder } from "./Home.styled";
+import { Link, Outlet } from "react-router-dom";
 
-const navItems = [
-  { href: "/", text: "Home" },
-  { href: "/movies", text: "Movies" }
-];
+
+
 
 
 export default function Home() {
@@ -20,11 +16,11 @@ getTrandingFilms().then(data => setTrandingFilms(data.results))
 
 
   return (
-  
+           
        <ul>
-        {trandingFilms.map(({ title, id }) => <li key={id}><Link >{title}</Link></li>)}
+      {trandingFilms.map(({ title, id }) => <li key={id}><Link to={`movies/${id}`}>{title}</Link></li>)}
       </ul>
-  
+
   )
 }
 
