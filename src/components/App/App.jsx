@@ -19,11 +19,7 @@ export const App = () => {
             <Route path="/movies/:movieId/cast" element={<Cast/>} />
             <Route path="/movies/:movieId/review" element={<Reviews/>} />
           </Route>
-          
-        {/* <Route path="/movies" element={<MovieDetails/>} />
-        <Route path="/movies" element={<Cast/>} />
-        <Route path="/movies" element={<Reviews/>} /> */}
-      </Route>
+        </Route>
     </Routes>
       <GlobalStyle />
       </div>

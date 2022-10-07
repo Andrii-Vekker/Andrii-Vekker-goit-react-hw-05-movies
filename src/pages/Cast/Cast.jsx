@@ -1,7 +1,15 @@
+import { useParams } from "react-router-dom";
 
 
 export default function Cast() {
+  const param = useParams()
+  console.log(param)
   return (
-    <div>Cast</div>
-  )
-}
+    <ul>
+      <li>
+        <img src="/" alt="" />
+        <p></p>
+      </li>
+   </ul>
+  );
+};

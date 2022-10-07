@@ -3,6 +3,14 @@
 
 export default function Reviews() {
   return (
-    <div>Reviews</div>
-  )
-}
+    <>
+    <ul>
+      <li>
+        <h2>
+        </h2>
+        <p></p>
+      </li>
+      </ul>
+      </>
+  );
+};

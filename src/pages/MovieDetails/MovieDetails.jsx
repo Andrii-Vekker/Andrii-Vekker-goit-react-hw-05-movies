@@ -1,4 +1,4 @@
-import { Link, useParams } from "react-router-dom";
+import { Link, Outlet, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { getFilmById } from "components/Api/Api";
 
@@ -20,8 +20,8 @@ export default function MovieDetails() {
   const score = (vote_average * 10).toFixed();
   const filmGenres = genres.map(({ name }) => name);
   const space = filmGenres.join(" ").split();
-  console.log(movieInfo)
-   return (
+  return (
+     <>
     <main>
       <section  style={{display:"flex"}}>
         {poster_path ? <img style={{width:"200px", height:"300px"}} src={`https://www.themoviedb.org/t/p/w500${poster_path}`} alt={`${original_title}`} /> : null}
@@ -37,11 +37,13 @@ export default function MovieDetails() {
       <section>
         <h3>Addidition information</h3>
         <ul>
-          <li>{<Link to="">Cast</Link>}</li>
-          <li>{<Link to="">Reviews</Link>}</li>
+          <li>{<Link to={`/movies/${movieId}/cast`}>Cast</Link>}</li>
+          <li>{<Link to={`/movies/${movieId}/review`}>Reviews</Link>}</li>
         </ul>
       </section>
       
-    </main>
+      </main>
+      <Outlet/>
+      </>
   );
 };
