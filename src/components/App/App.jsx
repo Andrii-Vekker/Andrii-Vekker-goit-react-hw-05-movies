@@ -1,4 +1,5 @@
 import { GlobalStyle } from "./GlobalStyle";
+import { ToastContainer } from 'react-toastify';
 import Cast from "pages/Cast/Cast";
 import Home from "pages/Home/Home";
 import MovieDetails from "pages/MovieDetails/MovieDetails";
@@ -22,6 +23,7 @@ export const App = () => {
         </Route>
     </Routes>
       <GlobalStyle />
+      <ToastContainer/>
       </div>
     
   );

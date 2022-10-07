@@ -1,6 +1,8 @@
 import { getTrandingFilms } from "components/Api/Api";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { toast } from 'react-toastify';
+
 
 
 
@@ -18,7 +20,7 @@ getTrandingFilms().then(data => setTrandingFilms(data.results))
   return (
            
        <ul>
-      {trandingFilms.map(({ title, id }) => <li key={id}><Link to={`/movies/${id}`}>{title}</Link></li>)}
+      {trandingFilms.length>0 && trandingFilms.map(({ title, id }) => <li key={id}><Link to={`/movies/${id}`}>{title}</Link></li>)}
       </ul>
 
   )

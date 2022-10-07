@@ -19,7 +19,7 @@ export default function Reviews() {
 
   return (
     <>
-    <ul>
+    {reviews.length>0 ? <ul>
         {reviews.map(({ content, author, id }) => {
           return (
             <li key={id}>
@@ -28,7 +28,7 @@ export default function Reviews() {
             </li>
           );
      })}
-      </ul>
+      </ul> : <h2>Sorry, no info</h2>}
       </>
   );
 };
