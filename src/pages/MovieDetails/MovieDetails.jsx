@@ -1,15 +1,31 @@
-import { Link, Outlet, useParams } from "react-router-dom";
+import { Outlet, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { getFilmById } from "components/Api/Api";
+import { ToastContainer, toast } from "react-toastify";
+import Loader from "components/Loader/Loader";
+import { DetailsLinks, DetailsList } from "./MovieDetails.styled";
 
 
 export default function MovieDetails() {
 
   const { movieId } = useParams();
   const [movieInfo, setMovieInfo] = useState(null);
-  useEffect(() => {
- getFilmById(movieId).then(data => setMovieInfo(data))
-  }, [movieId])
+ const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null)
+
+   useEffect(() => {
+ const getIdFilm = async () => {
+    try {
+      setIsLoading(true)
+      await getFilmById(movieId).then(data => setMovieInfo(data))
+      
+    } catch (error) {
+      error()
+          } finally { setIsLoading(false) }
+   }
+   getIdFilm()
+ }, [movieId])
+
   
   if (!movieInfo) {
    return
@@ -20,24 +36,27 @@ export default function MovieDetails() {
   const filmGenres = genres.map(({ name }) => name);
   const space = filmGenres.join(" ").split();
   return (
-     <>
+    <>
+      <ToastContainer />
+        {isLoading && <Loader />}
+      {error && setError(toast.error("Error loading. Try again"))}
     <main>
       <section  style={{display:"flex"}}>
-        {poster_path ? <img style={{width:"200px", height:"300px"}} src={`https://www.themoviedb.org/t/p/w500${poster_path}`} alt={`${original_title}`} /> : null}
-        <ul>
+        {poster_path ? <img style={{width:"200px", height:"300px", marginRight:"20px"}} src={`https://www.themoviedb.org/t/p/w500${poster_path}`} alt={`${original_title}`} /> : null}
+        <DetailsList>
           <li><h2>{`${original_title} (${date})`}</h2></li>
            <li>{`User Score ${score}%`}</li>
           <li><h3>Overwiev</h3></li>
            <li>{overview}</li>
           <li><h3>Genres</h3></li>
            <li>{space}</li>
-        </ul>
+        </DetailsList>
        </section>
       <section>
-        <h3>Addidition information</h3>
+        <h3 style={{marginTop:"20px"}}>Addidition information</h3>
         <ul>
-          <li>{<Link to={`/movies/${movieId}/cast`}>Cast</Link>}</li>
-          <li>{<Link to={`/movies/${movieId}/review`}>Reviews</Link>}</li>
+          <li>{<DetailsLinks to={`/movies/${movieId}/cast`}>Cast</DetailsLinks>}</li>
+          <li>{<DetailsLinks to={`/movies/${movieId}/review`}>Reviews</DetailsLinks>}</li>
         </ul>
       </section>
       
@@ -46,3 +65,9 @@ export default function MovieDetails() {
       </>
   )
 };
+
+
+
+//   useEffect(() => {
+//  getFilmById(movieId).then(data => setMovieInfo(data))
+//   }, [movieId])

@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types';
-
+import { SearchInput } from './SearchBox.styled';
 
 export default function SearchBox({onChange}) {
 
     return (
-        <div>
-            <input type="text" onChange={e => onChange(e.target.value)}/>
+        <div style={{width:"250px"}}>
+            <SearchInput type="text" onChange={e => onChange(e.target.value)}/>
         </div>
     );
 };
