@@ -1,9 +1,10 @@
-import { Outlet, useParams } from "react-router-dom";
+import { Outlet, useLocation, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { getFilmById } from "components/Api/Api";
 import { ToastContainer, toast } from "react-toastify";
 import Loader from "components/Loader/Loader";
 import { DetailsLinks, DetailsList } from "./MovieDetails.styled";
+import GoHomeBtn from "components/GoHomeBtn/GoHomeBtn";
 
 
 export default function MovieDetails() {
@@ -11,7 +12,9 @@ export default function MovieDetails() {
   const { movieId } = useParams();
   const [movieInfo, setMovieInfo] = useState(null);
  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null)
+  const [error, setError] = useState(null);
+  
+const location = useLocation()
 
    useEffect(() => {
  const getIdFilm = async () => {
@@ -40,8 +43,9 @@ export default function MovieDetails() {
       <ToastContainer />
         {isLoading && <Loader />}
       {error && setError(toast.error("Error loading. Try again"))}
-    <main>
-      <section  style={{display:"flex"}}>
+      <main>
+                  <GoHomeBtn/>
+        <section style={{ display: "flex" }}>
         {poster_path ? <img style={{width:"200px", height:"300px", marginRight:"20px"}} src={`https://www.themoviedb.org/t/p/w500${poster_path}`} alt={`${original_title}`} /> : null}
         <DetailsList>
           <li><h2>{`${original_title} (${date})`}</h2></li>
@@ -55,8 +59,8 @@ export default function MovieDetails() {
       <section>
         <h3 style={{marginTop:"20px"}}>Addidition information</h3>
         <ul>
-          <li>{<DetailsLinks to={`/movies/${movieId}/cast`}>Cast</DetailsLinks>}</li>
-          <li>{<DetailsLinks to={`/movies/${movieId}/review`}>Reviews</DetailsLinks>}</li>
+          <li>{<DetailsLinks state={{from: location.state.from}} to={`/movies/${movieId}/cast`}>Cast</DetailsLinks>}</li>
+          <li>{<DetailsLinks state={{from: location.state.from}} to={`/movies/${movieId}/review`}>Reviews</DetailsLinks>}</li>
         </ul>
       </section>
       

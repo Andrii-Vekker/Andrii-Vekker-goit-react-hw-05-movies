@@ -1,4 +1,4 @@
-import { useSearchParams } from "react-router-dom";
+import { useLocation, useSearchParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import SearchBox from "components/SearchBox/SearchBox";
 import { getSearchFilms } from "components/Api/Api";
@@ -14,7 +14,8 @@ export default function Movies() {
   const [searchParams, setSearchParams] = useSearchParams();
   const filter = searchParams.get("filter") ?? "";
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null)
+  const [error, setError] = useState(null);
+  const location = useLocation()
 
   useEffect(() => {
          if (!filter) {
@@ -48,7 +49,7 @@ setSearchParams(value !== "" ? {filter: value} : {})
       {error && setError(toast.error("Error loading. Try again"))}
        <SearchBox onChange={changeFilter} />
        <ul>
-        {searchFilms.map(({ title, id }) => <li key={id}><NavLink style={{ textDecoration: "none" }}
+        {searchFilms.map(({ title, id }) => <li key={id}><NavLink state={{from: location}} style={{ textDecoration: "none" }}
           to={`/movies/${id}`}>{title}</NavLink></li>)}
        </ul>
      </>

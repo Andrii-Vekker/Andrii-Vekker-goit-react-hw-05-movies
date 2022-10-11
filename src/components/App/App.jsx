@@ -7,6 +7,7 @@ import Movies from "pages/Movies/Movies";
 import Reviews from "pages/Reviews/Reviews";
 import { Routes, Route } from "react-router-dom";
 import Layout from "components/Layout/Layout";
+import NotFoundPage from "pages/NotFoundPage/NotFoundPage";
 
 
 export const App = () => {
@@ -20,6 +21,7 @@ export const App = () => {
             <Route path="/movies/:movieId/cast" element={<Cast/>} />
             <Route path="/movies/:movieId/review" element={<Reviews/>} />
           </Route>
+          <Route path="notFound" element={<NotFoundPage/>} />
         </Route>
     </Routes>
       <GlobalStyle />
