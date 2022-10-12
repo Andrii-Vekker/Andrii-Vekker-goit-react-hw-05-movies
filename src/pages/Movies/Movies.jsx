@@ -47,7 +47,7 @@ setSearchParams(value !== "" ? {filter: value} : {})
       <ToastContainer />
       {isLoading && <Loader />}
       {error && setError(toast.error("Error loading. Try again"))}
-       <SearchBox onChange={changeFilter} />
+       <SearchBox filterValue={filter} onChange={changeFilter} />
        <ul>
         {searchFilms.map(({ title, id }) => <li key={id}><NavLink state={{from: location}} style={{ textDecoration: "none" }}
           to={`/movies/${id}`}>{title}</NavLink></li>)}

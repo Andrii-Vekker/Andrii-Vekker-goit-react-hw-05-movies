@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { SearchInput } from './SearchBox.styled';
 import { SearchForm, SearchFormBtn, SearchFormBtnLabel } from './SearchBox.styled';
 
-export default function SearchBox({ onChange }) {
+export default function SearchBox({ onChange, filterValue }) {
 
     return (
          <SearchForm  onSubmit={(e) => {
@@ -18,14 +18,16 @@ export default function SearchBox({ onChange }) {
                         type="text"
                         autoComplete="off"
                         autoFocus
-                        placeholder="Search films"
+                placeholder="Search films"
+                defaultValue={filterValue}
                     />
                 </SearchForm>
     )
 };
 
 SearchBox.propTypes = {
-    onChange: PropTypes.func.isRequired
+    onChange: PropTypes.func.isRequired,
+    filterValue: PropTypes.string.isRequired    
 };
 
 
